@@ -1,16 +1,12 @@
 const express =require('express');
 const cors =require('cors');
-const router =express.Router();
-
+const router =require('./routes');
+require('./database/');
 const app = express();
+app.use(express.json());
+app.use(cors());
 
-/* app.use(cors()); *//* 
-app.use(routes); */
-
-router.get('/', (req, res, next)=>{
-    res.status(200).send({
-        mensagem:'OkL'
-    })
-})
 app.use(router);
+
+
 app.listen(3000);
